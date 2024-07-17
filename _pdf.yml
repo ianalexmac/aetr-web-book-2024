@@ -23,9 +23,7 @@ book:
     - prices.qmd
   appendices:
     - about.qmd
-    - historic_reports.qmd
-    - acronyms.qmd
-    - credits.qmd 
+
 
   sidebar:
     logo: "images/ACEP_gear.png"

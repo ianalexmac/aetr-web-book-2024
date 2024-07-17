@@ -15,16 +15,11 @@ echo: false
 library(tidyr)
 library(dplyr)
 library(readr)
+library(ggplot2)
+library(ggiraph)
 
 # Import the data
 capacity_data <- read.csv("data/working/capacity/capacity_long.csv")
-
-# Regional capacity
-regional_capacity <- capacity_data %>%
-  group_by(year,acep_region,prime_mover) %>%
-  summarize(
-    "total_capacity" = sum(capacity, na.rm = TRUE)
-  )
 
 # Function declaration
 source("scripts/inline_functions/capacity_inline_functions.R")
@@ -38,6 +33,81 @@ We begin this section by showcasing the increases in total capacity across the s
 
 [^1]: Prime movers are categorized as follows. Fossil turbines include combined cycle turbines, gas turbines, and steam turbines. Reciprocating engines include internal combustion engines. Hydro includes hydraulic turbines and hydrokinetics. Wind includes wind turbines. Utility solar includes utility-owned photovoltaic (PV), and Rooftop solar includes customer-sited, behind-the-meter PV. Storage refers to batteries and flywheels.
 
+```{r}
+#code for both html and pdf
+
+regional_capacity <- capacity_data %>%
+  group_by(year,acep_region,prime_mover) %>%
+  summarize(
+    "total_capacity" = sum(capacity, na.rm = TRUE)
+  )
+
+statewide_capacity <- regional_capacity %>%
+      group_by(year, prime_mover) %>%
+      summarize(statewide_capacity = sum(total_capacity, na.rm = TRUE)) %>%
+      arrange(desc(statewide_capacity), .by_group = TRUE) %>%
+      mutate(prime_mover = factor(prime_mover, 
+                                  levels = unique(prime_mover)))
+
+statewide_plot <-
+  ggplot(
+    statewide_capacity, 
+    aes(
+      x = year, 
+      y = statewide_capacity,
+      fill = prime_mover)) +
+  
+  geom_area(
+     stat = "identity",
+     position = "stack") +
+  
+  geom_point(
+    alpha = 0) +
+
+  scale_x_continuous(
+    name = "\nYear", 
+    breaks = seq(2011, 2021, 1), 
+    expand = c(0, 0.1)) + 
+
+  scale_y_continuous(
+    name = "Capacity (MW)\n",
+    limits = c(0,3500),
+    breaks = seq(0,3500, by = 500),
+    expand = c(0, 0.2)) +
+
+  scale_fill_manual(values = c("#606571", "#9da7bf", "#00a1b7", "#F79646", "#fad900","#9BBB59","#71346a","#896D09")) +
+  theme_minimal() +
+  theme(legend.position = "top", panel.grid.minor.x = element_blank(),
+        legend.title = element_blank()) +
+  guides(fill = guide_legend(nrow = 1))
+statewide_plot
+```
+
+```{r, eval=knitr::is_html_output()}
+#| label: fig-capacity-state
+#| fig-cap: "Capacity Changes, Statewide"
+statewide_html <- 
+  statewide_plot +
+  geom_point_interactive(
+    aes(
+      tooltip = paste(
+        "Year:", year,
+        "Prime Mover:", prime_mover,
+        "Capacity (MW):", round(statewide_capacity, 2))
+        ), 
+    size = 10, color = "transparent") 
+  
+girafe(code = print(statewide_html))
+
+```
+
+```{r, eval=knitr::is_latex_output()}
+statewide_pdf <- 
+  statewide_plot +
+  ggtitle("Figure 3.1: Capacity Changes, Statewide")
+
+print(statewide_pdf)
+```
 
 ```{ojs}
 //| label: fig-capacity-state

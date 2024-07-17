@@ -45,18 +45,14 @@ jobs:
     needs: setup-and-publish
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-
       - name: Render PDF
         run: |
           cp ./_pdf.yml ./_quarto.yml
           cat ./_quarto.yml
-          quarto render index.qmd --to pdf --output-dir ./
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Update PDF" || echo "No changes to commit"
-          git push
+
+      - name: Publish to GitHub Pages (and render)
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

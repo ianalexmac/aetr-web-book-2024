@@ -7,9 +7,6 @@ output:
   quarto::quarto_html:
     pre_processor: quarto::observable
 echo: false
-format:
-  html: true
-  pdf: false
 ---
 
 

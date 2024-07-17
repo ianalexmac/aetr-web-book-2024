@@ -18,6 +18,21 @@ book:
       icon: bi-file-spreadsheet
   repo-actions: [issue]
 
+  chapters:
+    - index.qmd
+    - methods.qmd
+    - capacity.qmd
+    - generation.qmd
+    - consumption.qmd
+    - prices.qmd
+    - conclusions.qmd
+    - data.qmd
+  appendices:
+    - about.qmd
+    - historic_reports.qmd
+    - acronyms.qmd
+    - credits.qmd 
+
   sidebar:
     logo: "images/ACEP_gear.png"
     pinned: true
@@ -39,11 +54,6 @@ crossref:
   appendix-title: "Appendix"
   appendix-delim: ":"
 
-date: last-modified
-date-format: "MMM D, YYYY [at] HH:mm z"
-
-filters:
-  - quarto
 
 format:
   html:
@@ -57,7 +67,6 @@ format:
       light: [cosmo, theme.scss, custom.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
       #dark: [cosmo, theme-dark.scss]
     toc: true
-
   pdf:
     pdfengine: xelatex
     documentclass: scrreprt
@@ -93,32 +102,11 @@ format:
 
     include-in-header: include-in-header.tex
 
+date: last-modified
+date-format: "MMM D, YYYY [at] HH:mm z"
 
-profiles:
-  html:
-    book:
-      chapters:
-        - index.qmd
-        - methods.qmd
-        - capacity.qmd
-        - generation.qmd
-        - consumption.qmd
-        - prices.qmd
-        - conclusions.qmd
-        - data.qmd
-      appendices:
-        - about.qmd
-        - historic_reports.qmd
-        - acronyms.qmd
-        - credits.qmd 
 
-  pdf:
-    book:
-      chapters:
-        - index.qmd
-        - prices.qmd
-      appendices:
-        - credits.qmd
+filters:
+  - quarto
 
-  
   

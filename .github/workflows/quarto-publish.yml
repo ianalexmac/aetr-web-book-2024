@@ -5,7 +5,7 @@ on:
 name: Render and Publish
 
 jobs:
-  setup-and-publish:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -14,8 +14,13 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          tinytex: true
+          # To install LaTeX to build PDF book 
+          tinytex: true 
+          # uncomment below and fill to pin a version
+          # version: 0.9.600
       
+      # add software dependencies here
+
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
 
@@ -27,27 +32,25 @@ jobs:
         with:
           path: ~/R/Library
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-          restore-keys: ${{ runner.os }}-renv-
+          restore-keys: |
+            ${{ runner.os }}-renv-
 
       - name: Restore R package dependencies with renv
         run: |
           Rscript -e "install.packages('renv')"
           Rscript -e "renv::restore()"
+            
+      # set the file modification times to the time of the last commit for every file
+      # This did not work as expected, so deactivated. But left in case we want to come back to it.
+      # - name: Fix timestamps
+      #   run:  bash .github/scripts/fix-timestamps.sh
 
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
 
-
-      # - name: Render PDF
-      #   uses: quarto-dev/quarto-actions/render@v2
-      #   env:
-      #     QUARTO_PROFILE: preview
-      #   with:
-      #     to: pdf
-  
-      - name: Render PDF with Profile
-        run: quarto render index.qmd --to pdf --output-dir . --profile pdf
+      - name: Render PDF
+        run: quarto render index.qmd --to pdf --output-dir .

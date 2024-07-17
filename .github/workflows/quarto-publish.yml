@@ -43,7 +43,7 @@ jobs:
 
 
       - name: Render PDF
-        uses: quarto-dev/quarto-actions/render@v2
+        uses: quarto-dev/quarto-actions/publish@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           QUARTO_PROFILE: preview

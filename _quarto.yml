@@ -18,20 +18,6 @@ book:
       icon: bi-file-spreadsheet
   repo-actions: [issue]
 
-  chapters:
-    - index.qmd
-    - methods.qmd
-    - capacity.qmd
-    - generation.qmd
-    - consumption.qmd
-    - prices.qmd
-    - conclusions.qmd
-    - data.qmd
-  appendices:
-    - about.qmd
-    - historic_reports.qmd
-    - acronyms.qmd
-    - credits.qmd 
 
   sidebar:
     logo: "images/ACEP_gear.png"
@@ -53,6 +39,28 @@ book:
 crossref:
   appendix-title: "Appendix"
   appendix-delim: ":"
+
+profiles:
+  html:
+    chapters:
+      - index.qmd
+      - methods.qmd
+      - capacity.qmd
+      - generation.qmd
+      - consumption.qmd
+      - prices.qmd
+      - conclusions.qmd
+      - data.qmd
+    appendices:
+      - about.qmd
+      - historic_reports.qmd
+      - acronyms.qmd
+      - credits.qmd 
+  pdf:
+    chapters:
+      - index.qmd
+      - prices.qmd
+      - conclusions.qmd
 
 
 format:

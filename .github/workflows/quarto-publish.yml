@@ -41,21 +41,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  render-pdf:
-    needs: setup-and-publish
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-        
       - name: Render PDF
-        run: |
-          cp _pdf.yml _quarto.yml
-          cat _quarto.yml
-
-      - name: Publish to GitHub Pages (and render)
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: pdf
+        uses: quarto-dev/quarto-actions/render@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          QUARTO_PROFILE: preview
+        with:
+          to: pdf

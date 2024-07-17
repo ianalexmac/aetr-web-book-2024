@@ -42,11 +42,12 @@ jobs:
           target: gh-pages
 
 
-      - name: Render PDF
-        uses: quarto-dev/quarto-actions/publish@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          QUARTO_PROFILE: preview
-        with:
-          to: pdf
-          target: pdf
+      # - name: Render PDF
+      #   uses: quarto-dev/quarto-actions/render@v2
+      #   env:
+      #     QUARTO_PROFILE: preview
+      #   with:
+      #     to: pdf
+  
+      - name: Render PDF with Profile
+        run: quarto render index.qmd --to pdf --output-dir . --profile pdf

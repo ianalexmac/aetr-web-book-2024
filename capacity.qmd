@@ -80,7 +80,7 @@ statewide_plot <-
   theme(legend.position = "top", panel.grid.minor.x = element_blank(),
         legend.title = element_blank()) +
   guides(fill = guide_legend(nrow = 1))
-statewide_plot
+
 ```
 
 ```{r, eval=knitr::is_html_output()}
@@ -92,8 +92,8 @@ statewide_html <-
     aes(
       tooltip = paste(
         "Year:", year,
-        "Prime Mover:", prime_mover,
-        "Capacity (MW):", round(statewide_capacity, 2))
+        "<br>Prime Mover:", prime_mover,
+        "<br>Capacity (MW):", round(statewide_capacity, 2))
         ), 
     size = 10, color = "transparent") 
   

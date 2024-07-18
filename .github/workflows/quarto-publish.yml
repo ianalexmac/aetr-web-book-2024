@@ -77,7 +77,7 @@ jobs:
         # Copy the PDF to the gh-pages directory
       - name: Copy PDF to gh-pages directory
         run: |
-          cp *.pdf gh-pages/
+          cp ./_book/*.pdf gh-pages/
   
       # Debug: List files in gh-pages directory
       - name: List files in gh-pages directory

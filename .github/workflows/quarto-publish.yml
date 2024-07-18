@@ -53,41 +53,6 @@ jobs:
           QUARTO_PROFILE: html
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-        
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          # To install LaTeX to build PDF book 
-          tinytex: true 
-          # uncomment below and fill to pin a version
-          # version: 0.9.600
-      
-      # add software dependencies here
-
-      - name: Set up R
-        uses: r-lib/actions/setup-r@v2
-
-      - name: Install system dependencies
-        run: sudo apt-get install -y libcurl4-openssl-dev       
-
-      - name: Cache Renv packages
-        uses: actions/cache@v2
-        with:
-          path: ~/R/Library
-          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-renv-
-
-      - name: Restore R package dependencies with renv
-        run: |
-          Rscript -e "install.packages('renv')"
-          Rscript -e "renv::restore()"
-            
       - name: Render PDF
         uses: quarto-dev/quarto-actions/render@v2
         with:
@@ -103,3 +68,54 @@ jobs:
           git add -f *.pdf
           git commit -m "Automatically generated PDF" -a || echo "No changes to commit"
           git push
+
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Check out repository
+  #       uses: actions/checkout@v4
+        
+  #     - name: Set up Quarto
+  #       uses: quarto-dev/quarto-actions/setup@v2
+  #       with:
+  #         # To install LaTeX to build PDF book 
+  #         tinytex: true 
+  #         # uncomment below and fill to pin a version
+  #         # version: 0.9.600
+      
+  #     # add software dependencies here
+
+  #     - name: Set up R
+  #       uses: r-lib/actions/setup-r@v2
+
+  #     - name: Install system dependencies
+  #       run: sudo apt-get install -y libcurl4-openssl-dev       
+
+  #     - name: Cache Renv packages
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: ~/R/Library
+  #         key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-renv-
+
+  #     - name: Restore R package dependencies with renv
+  #       run: |
+  #         Rscript -e "install.packages('renv')"
+  #         Rscript -e "renv::restore()"
+            
+  #     - name: Render PDF
+  #       uses: quarto-dev/quarto-actions/render@v2
+  #       with:
+  #         to: pdf
+  #         path: .
+  #       env:
+  #         QUARTO_PROFILE: pdf
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     - name: Commit PDF
+  #       run: |
+  #         git config --local user.email "action@github.com"
+  #         git config --local user.name "GitHub Action"
+  #         git add -f *.pdf
+  #         git commit -m "Automatically generated PDF" -a || echo "No changes to commit"
+  #         git push

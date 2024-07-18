@@ -53,6 +53,10 @@ jobs:
           QUARTO_PROFILE: html
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: Render PDF
         uses: quarto-dev/quarto-actions/render@v2
         with:
@@ -60,7 +64,11 @@ jobs:
           path: .
         env:
           QUARTO_PROFILE: pdf
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-          
-      # - name: Render PDF
-      #   run: quarto render index.qmd --to pdf --output-dir . --profile pdf
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit PDF
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -f *.pdf
+          git commit -m "Automatically generated PDF" -a || echo "No changes to commit"
+          git push

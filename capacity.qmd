@@ -77,9 +77,6 @@ statewide_plot <-
 
 ```
 
-
-
-
 ```{r, eval=knitr::is_html_output()}
 #| label: fig-capacity-state
 #| fig-cap: "Capacity Changes, Statewide"

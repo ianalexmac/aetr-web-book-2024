@@ -105,58 +105,6 @@ statewide_pdf <-
 print(statewide_pdf)
 ```
 
-```{ojs}
-//| label: fig-capacity-state
-//| fig-cap: "Capacity Changes, Statewide"
-
-Plot.plot({
-  // Configure the plot
-  //title: "Capacity changes, Statewide",
-  insetLeft: 0,
-  insetRight: 0,
-  width: width,
-  
-  // Configure the x-axis
-  x: {
-    tickFormat: "d",
-    label: "Year",
-    //domain: [2011,2012,2013,2018,2021]
-  },
-  // Configure the y-axis
-  y: {
-    grid: true,
-    label: "Capacity (MW)"
-  },
-
-  // Stacked area plot
-  marks: [
-    Plot.areaY(cap_data,
-      Plot.groupX(
-        {
-          y: "sum"
-        },
-        {
-          x: "year",
-          y: "capacity",
-          fill: "Prime Mover",
-          order: ["Fossil Turbines", "Recip Engines", "Hydro", "Wind","Utility Solar","Rooftop Solar","Storage","Landfill Gas"],
-          tip: {format: {x: "d"}}
-        }
-      )
-    ),
-    Plot.ruleY([0])
-  ],
-  
-  // Configure the color scheme
-  color: {
-        domain: ["Fossil Turbines", "Recip Engines", "Hydro", "Wind","Utility Solar","Rooftop Solar","Storage","Landfill Gas"],
-        range: ["#606571", "#9da7bf", "#00a1b7", "#F79646", "#fad900","#9BBB59","#71346a","#896D09"],
-        legend: true
-    }
-})
-```
-
-
 ## Coastal
 
 For the coastal region, we observe a `r capacity_delta("Coastal")` MW increase in generation capacity (an increase of approximately `r capacity_delta("Coastal", pct=TRUE)` percent) between 2011 and 2021. @fig-capacity-coastal shows the change in total installed capacity for each prime mover in the coastal region. This region saw additions of `r capacity_delta("Coastal", prime_mover = "Fossil Turbines")` MW of fossil turbines, and `r capacity_delta("Coastal", prime_mover = "Recip Engines")` MW of reciprocating engines. The remaining increases were renewable and storage capacity which we look at in more depth in @fig-capacity-coastal-renewable.

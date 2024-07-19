@@ -42,13 +42,14 @@ regional_capacity <- capacity_data %>%
     "total_capacity" = sum(capacity, na.rm = TRUE)
   )
 
+names <- c("Landfill Gas","Storage","Utility Solar","Rooftop Solar","Wind","Hydro","Recip Engines","Fossil Turbines")
+
 statewide_capacity <- regional_capacity %>%
       group_by(year, prime_mover) %>%
       summarize(statewide_capacity = sum(total_capacity, na.rm = TRUE)) %>%
-      arrange(statewide_capacity, .by_group = TRUE) %>%
       mutate(prime_mover = factor(prime_mover, 
-                                  levels = unique(prime_mover)),
-             year = as.character)
+                                  levels = names),
+             year = as.character(year))
 
 statewide_plot <-
   ggplot(
@@ -57,62 +58,48 @@ statewide_plot <-
       x = year, 
       y = statewide_capacity,
       fill = prime_mover)) +
-  
-  geom_area(
-     stat = "identity",
-     position = "stack") +
-  
-  geom_point(
-    alpha = 0) +
 
-  scale_x_continuous(
-    name = "\nYear", 
-    breaks = seq(2011, 2021, 1), 
-    expand = c(0, 0.1)) + 
-
+  scale_x_discrete(name = "\nYear") +
+  
   scale_y_continuous(
     name = "Capacity (MW)\n",
     limits = c(0,3500),
     breaks = seq(0,3500, by = 500),
     expand = c(0, 0.2)) +
-
-  scale_fill_manual(values = c("#606571", "#9da7bf", "#00a1b7", "#F79646", "#fad900","#9BBB59","#71346a","#896D09")) +
+  
+    
+  scale_fill_manual(values = rev(c("#606571", "#9da7bf", "#00a1b7", "#F79646", "#fad900","#9BBB59","#71346a","#896D09"))) +
+  
   theme_minimal() +
   theme(legend.position = "top", panel.grid.minor.x = element_blank(),
         legend.title = element_blank()) +
-  guides(fill = guide_legend(nrow = 1))
+  guides(fill = guide_legend(nrow = 1, reverse = TRUE))
 
 ```
+
+
+
 
 ```{r, eval=knitr::is_html_output()}
 #| label: fig-capacity-state
 #| fig-cap: "Capacity Changes, Statewide"
-statewide_html <- ggplot(statewide_capacity,
-       aes(x = year, y = statewide_capacity, fill = prime_mover)) + 
-  geom_bar_interactive(aes(tooltip = round(statewide_capacity, 1)), stat = "identity", hover_nearest = TRUE) + 
-  scale_y_continuous(limits = c(-200, 2000)) +
-  #geom_vline(xintercept = c(3.5, 4.5), col = "black") +
-  scale_fill_manual(
-    values = rev(c("#606571", "#9da7bf", "#00a1b7", "#F79646", "#fad900","#9BBB59","#71346a","#896D09"))) +
-  #geom_label(aes(label = round(statewide_capacity, 1)), fill = "white", size = 2) +
-  facet_wrap(~prime_mover, ncol = 1, axes = "margins", scales = "fixed") +
-  theme_minimal() +
-  theme(panel.grid.minor.x = element_blank(),
-        axis.text.y = element_blank()) #+
-  #geom_label_interactive(aes(label = round(statewide_capacity, 1)),
-  #                       tooltip = round(statewide_capacity$statewide_capacity, 1),
-      #                   fill = "white",
-     #                    hover_nearest = TRUE)
+statewide_html <- 
+  statewide_plot +
   
-x <- girafe(code = print(statewide_html))
-       girafe_options(x = x, opts_tooltip(delay_mouseover = 0,
-                                          delay_mouseout = 1000))
+geom_col_interactive(aes(tooltip = 
+                           paste("Year:", year,
+                                 "<br>Prime Mover:", prime_mover,
+                                 "<br>Capacity (MW):",statewide_capacity)))
+girafe(code = print(statewide_html))
 
 ```
 
 ```{r, eval=knitr::is_latex_output()}
 statewide_pdf <- 
   statewide_plot +
+    
+  geom_col(position = "stack") +
+  
   ggtitle("Figure 3.1: Capacity Changes, Statewide")
 
 print(statewide_pdf)

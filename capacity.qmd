@@ -21,6 +21,11 @@ library(ggiraph)
 # Import the data
 capacity_data <- read.csv("data/working/capacity/capacity_long.csv")
 
+regional_capacity <- capacity_data %>%
+  group_by(year,acep_region,prime_mover) %>%
+  summarize(
+    "total_capacity" = sum(capacity, na.rm = TRUE), .groups = "drop")
+
 # Function declaration
 source("scripts/inline_functions/capacity_inline_functions.R")
 ```
@@ -36,17 +41,11 @@ We begin this section by showcasing the increases in total capacity across the s
 ```{r}
 #code for both html and pdf
 
-regional_capacity <- capacity_data %>%
-  group_by(year,acep_region,prime_mover) %>%
-  summarize(
-    "total_capacity" = sum(capacity, na.rm = TRUE)
-  )
-
 names <- c("Landfill Gas","Storage","Utility Solar","Rooftop Solar","Wind","Hydro","Recip Engines","Fossil Turbines")
 
 statewide_capacity <- regional_capacity %>%
       group_by(year, prime_mover) %>%
-      summarize(statewide_capacity = sum(total_capacity, na.rm = TRUE)) %>%
+      summarize(statewide_capacity = sum(total_capacity, na.rm = TRUE), .groups = "drop") %>% 
       mutate(prime_mover = factor(prime_mover, 
                                   levels = names),
              year = as.character(year))

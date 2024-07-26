@@ -244,8 +244,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#how-to-cite" id="toc-how-to-cite" class="nav-link active" data-scroll-target="#how-to-cite"><span class="header-section-number">8.1</span> How to Cite</a></li>
-  <li><a href="#data-overview" id="toc-data-overview" class="nav-link" data-scroll-target="#data-overview"><span class="header-section-number">8.2</span> Data Overview</a></li>
-  <li><a href="#download-individual-tables" id="toc-download-individual-tables" class="nav-link" data-scroll-target="#download-individual-tables"><span class="header-section-number">8.3</span> Download Individual Tables</a>
+  <li><a href="#data-overview-1" id="toc-data-overview-1" class="nav-link" data-scroll-target="#data-overview-1"><span class="header-section-number">8.2</span> Data Overview</a></li>
+  <li><a href="#download-individual-tables-1" id="toc-download-individual-tables-1" class="nav-link" data-scroll-target="#download-individual-tables-1"><span class="header-section-number">8.3</span> Download Individual Tables</a>
   <ul class="collapse">
   <li><a href="#capacity" id="toc-capacity" class="nav-link" data-scroll-target="#capacity">Capacity</a></li>
   <li><a href="#net-generation" id="toc-net-generation" class="nav-link" data-scroll-target="#net-generation">Net Generation</a></li>
@@ -273,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Jul 24, 2024 at 22:40 UTC</p>
+      <p class="date">Jul 26, 2024 at 19:54 UTC</p>
     </div>
   </div>
   
@@ -295,51 +295,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="8.1" class="anchored" data-anchor-id="how-to-cite"><span class="header-section-number">8.1</span> How to Cite</h2>
 <p>Alaska Center for Energy and Power. “2024 Alaska Energy Trends Report Web Book.” Accessed <span><span id="ojs-element-id-1"></span>.</span> https://acep-uaf.github.io/aetr-web-book-2024</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="28" data-source-offset="-24"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 27;"><span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>day <span class="op">=</span> date<span class="op">.</span><span class="fu">getDate</span>()<span class="op">;</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>month <span class="op">=</span> date<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="st">'default'</span><span class="op">,</span> { <span class="dt">month</span><span class="op">:</span> <span class="st">'long'</span> })<span class="op">;</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> date<span class="op">.</span><span class="fu">getFullYear</span>()<span class="op">;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>month_2digit <span class="op">=</span> (date<span class="op">.</span><span class="fu">getMonth</span>() <span class="op">+</span> <span class="dv">1</span>)<span class="op">.</span><span class="fu">toString</span>()<span class="op">.</span><span class="fu">padStart</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">"0"</span>)<span class="op">;</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>day_2digit   <span class="op">=</span> date<span class="op">.</span><span class="fu">getDate</span>()<span class="op">.</span><span class="fu">toString</span>()<span class="op">.</span><span class="fu">padStart</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">"0"</span>)<span class="op">;</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>currentDate <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>month<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>day<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>year<span class="sc">}</span><span class="vs">`</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">// build a button</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>citation_button <span class="op">=</span> (blob<span class="op">,</span> filename <span class="op">=</span> <span class="st">'test.bib'</span><span class="op">,</span> displayname) <span class="kw">=&gt;</span> {</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> button <span class="op">=</span> DOM<span class="op">.</span><span class="fu">download</span>(</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    blob<span class="op">,</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    filename<span class="op">,</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="vs">`</span><span class="sc">${</span>displayname<span class="sc">}</span><span class="vs">`</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> button<span class="op">;</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co">// BibLaTeX content</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>biblatexContent <span class="op">=</span> </span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="vs">`@online{aetr_web_book_2024,</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="vs">    author = {{Alaska Center for Energy and Power}},</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="vs">    title = {{2024 Alaska Electricity Trends Report}},</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="vs">    year = 2024,</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="vs">    url = {https://acep-uaf.github.io/aetr-web-book-2024/},</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="vs">    urldate = {</span><span class="sc">${</span>year<span class="sc">}</span><span class="vs">-</span><span class="sc">${</span>month_2digit<span class="sc">}</span><span class="vs">-</span><span class="sc">${</span>day_2digit<span class="sc">}</span><span class="vs">}</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="vs">}`</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>risContent <span class="op">=</span> </span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="vs">`TY  - ELEC</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="vs">AU  - Alaska Center for Energy and Power</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="vs">TI  - 2024 Alaska Electricity Trends Report</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="vs">PY  - 2024</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="vs">DA  - {</span><span class="sc">${</span>year<span class="sc">}</span><span class="vs">-</span><span class="sc">${</span>month_2digit<span class="sc">}</span><span class="vs">-</span><span class="sc">${</span>day_2digit<span class="sc">}</span><span class="vs">}</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="vs">UR  - https://acep-uaf.github.io/aetr-web-book-2024/</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="vs">N1  - Accessed on </span><span class="sc">${</span>currentDate<span class="sc">}</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="vs">ER  -`</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="co">// Create the blobs</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>biblatex_blob <span class="op">=</span> <span class="kw">new</span> <span class="bu">Blob</span>([biblatexContent]<span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">'text/plain'</span> })<span class="op">;</span> </span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>ris_blob <span class="op">=</span> <span class="kw">new</span> <span class="bu">Blob</span>([risContent]<span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">'text/plain'</span> })<span class="op">;</span> </span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="co">// Insert blobs into buttons</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="fu">citation_button</span>(biblatex_blob<span class="op">,</span> <span class="st">'aetr_web_book_2024.bib'</span><span class="op">,</span> <span class="st">'BibLaTeX'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="45" data-source-offset="-24"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 44;"><span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>day <span class="op">=</span> date<span class="op">.</span><span class="fu">getDate</span>()<span class="op">;</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>month <span class="op">=</span> date<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="st">'default'</span><span class="op">,</span> { <span class="dt">month</span><span class="op">:</span> <span class="st">'long'</span> })<span class="op">;</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> date<span class="op">.</span><span class="fu">getFullYear</span>()<span class="op">;</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>month_2digit <span class="op">=</span> (date<span class="op">.</span><span class="fu">getMonth</span>() <span class="op">+</span> <span class="dv">1</span>)<span class="op">.</span><span class="fu">toString</span>()<span class="op">.</span><span class="fu">padStart</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">"0"</span>)<span class="op">;</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>day_2digit   <span class="op">=</span> date<span class="op">.</span><span class="fu">getDate</span>()<span class="op">.</span><span class="fu">toString</span>()<span class="op">.</span><span class="fu">padStart</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">"0"</span>)<span class="op">;</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>currentDate <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>month<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>day<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>year<span class="sc">}</span><span class="vs">`</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co">// build a button</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>citation_button <span class="op">=</span> (blob<span class="op">,</span> filename <span class="op">=</span> <span class="st">'test.bib'</span><span class="op">,</span> displayname) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> button <span class="op">=</span> DOM<span class="op">.</span><span class="fu">download</span>(</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    blob<span class="op">,</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    filename<span class="op">,</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="vs">`</span><span class="sc">${</span>displayname<span class="sc">}</span><span class="vs">`</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> button<span class="op">;</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co">// BibLaTeX content</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>biblatexContent <span class="op">=</span> </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="vs">`@online{aetr_web_book_2024,</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="vs">    author = {{Alaska Center for Energy and Power}},</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="vs">    title = {{2024 Alaska Electricity Trends Report}},</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="vs">    year = 2024,</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="vs">    url = {https://acep-uaf.github.io/aetr-web-book-2024/},</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="vs">    urldate = {</span><span class="sc">${</span>year<span class="sc">}</span><span class="vs">-</span><span class="sc">${</span>month_2digit<span class="sc">}</span><span class="vs">-</span><span class="sc">${</span>day_2digit<span class="sc">}</span><span class="vs">}</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="vs">}`</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>risContent <span class="op">=</span> </span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="vs">`TY  - ELEC</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="vs">AU  - Alaska Center for Energy and Power</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="vs">TI  - 2024 Alaska Electricity Trends Report</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="vs">PY  - 2024</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="vs">DA  - {</span><span class="sc">${</span>year<span class="sc">}</span><span class="vs">-</span><span class="sc">${</span>month_2digit<span class="sc">}</span><span class="vs">-</span><span class="sc">${</span>day_2digit<span class="sc">}</span><span class="vs">}</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="vs">UR  - https://acep-uaf.github.io/aetr-web-book-2024/</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="vs">N1  - Accessed on </span><span class="sc">${</span>currentDate<span class="sc">}</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="vs">ER  -`</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="co">// Create the blobs</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>biblatex_blob <span class="op">=</span> <span class="kw">new</span> <span class="bu">Blob</span>([biblatexContent]<span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">'text/plain'</span> })<span class="op">;</span> </span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>ris_blob <span class="op">=</span> <span class="kw">new</span> <span class="bu">Blob</span>([risContent]<span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">'text/plain'</span> })<span class="op">;</span> </span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="co">// Insert blobs into buttons</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="fu">citation_button</span>(biblatex_blob<span class="op">,</span> <span class="st">'aetr_web_book_2024.bib'</span><span class="op">,</span> <span class="st">'BibLaTeX'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -431,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="73" data-source-offset="-1327"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 72;"><span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="fu">citation_button</span>(ris_blob<span class="op">,</span> <span class="st">'aetr_web_book_2024.ris'</span><span class="op">,</span> <span class="st">'RIS'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="90" data-source-offset="-1327"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 89;"><span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="fu">citation_button</span>(ris_blob<span class="op">,</span> <span class="st">'aetr_web_book_2024.ris'</span><span class="op">,</span> <span class="st">'RIS'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-14" data-nodetype="expression">
@@ -441,34 +441,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="data-overview" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="data-overview"><span class="header-section-number">8.2</span> Data Overview</h2>
+<section id="data-overview-1" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="data-overview-1"><span class="header-section-number">8.2</span> Data Overview</h2>
 <p>The data used in this web-book is derived from federal, state, commercial, and local sources, as well as direct communications with utilities and state program managers. More information about <a href="https://acep-uaf.github.io/ak-energy-statistics-2011_2021/">data sources</a> can be found on the <a href="./methods.html">methods page</a> of this web-book.</p>
 </section>
-<section id="download-individual-tables" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="download-individual-tables"><span class="header-section-number">8.3</span> Download Individual Tables</h2>
+<section id="download-individual-tables-1" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="download-individual-tables-1"><span class="header-section-number">8.3</span> Download Individual Tables</h2>
 <p>Individual tables can be downloaded here as text files (CSV, comma-separated values). Once downloaded to your local machine, these files can be opened graphically using Microsoft Excel, or programmatically using R or Python.</p>
 <section id="capacity" class="level3">
 <h3 class="anchored" data-anchor-id="capacity">Capacity</h3>
 <p><span><span id="ojs-element-id-2"></span></span></p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="52" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 51;"><span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>capacity_wide_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">description</span><span class="op">;</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>capacity_wide_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/capacity/capacity_wide.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>capacity_wide <span class="op">=</span> <span class="fu">tidy</span>(capacity_wide_raw<span class="op">,</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>capacity_wide_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">path</span><span class="op">;</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>capacity_wide_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span><span class="op">;</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>viewof capacity_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>                [<span class="st">"Capacity Metadata"</span><span class="op">,</span> capacity_wide_metadata]<span class="op">,</span> </span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>                [<span class="st">"Capacity"</span><span class="op">,</span> capacity_wide]])<span class="op">,</span> </span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> capacity_wide_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(capacity_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="69" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 68;"><span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>capacity_wide_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">description</span><span class="op">;</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>capacity_wide_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/capacity/capacity_wide.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>capacity_wide <span class="op">=</span> <span class="fu">tidy</span>(capacity_wide_raw<span class="op">,</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>capacity_wide_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">path</span><span class="op">;</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>capacity_wide_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span><span class="op">;</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>viewof capacity_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>                [<span class="st">"Capacity Metadata"</span><span class="op">,</span> capacity_wide_metadata]<span class="op">,</span> </span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>                [<span class="st">"Capacity"</span><span class="op">,</span> capacity_wide]])<span class="op">,</span> </span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> capacity_wide_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(capacity_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-2-1" data-nodetype="declaration">
@@ -529,7 +529,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div><div class="column" style="width:80%;">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="65" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 64;"><span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(capacity_wide_metadata<span class="op">,</span> <span class="st">'capacity_metadata.csv'</span><span class="op">,</span> <span class="vs">`Capacity Metadata`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="82" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 81;"><span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(capacity_wide_metadata<span class="op">,</span> <span class="st">'capacity_metadata.csv'</span><span class="op">,</span> <span class="vs">`Capacity Metadata`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="expression">
@@ -537,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="66" data-source-offset="-77"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 65;"><span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(capacity_wide<span class="op">,</span> <span class="vs">`capacity.csv`</span><span class="op">,</span> <span class="vs">`Capacity`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="83" data-source-offset="-77"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 82;"><span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(capacity_wide<span class="op">,</span> <span class="vs">`capacity.csv`</span><span class="op">,</span> <span class="vs">`Capacity`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-2" data-nodetype="expression">
@@ -554,20 +554,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="net-generation">Net Generation</h3>
 <p><span><span id="ojs-element-id-3"></span></span></p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="89" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 88;"><span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>net_generation_wide_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">2</span>]<span class="op">.</span><span class="at">description</span></span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>net_generation_wide_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/generation/net_generation_wide.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>net_generation_wide <span class="op">=</span> <span class="fu">tidy</span>(net_generation_wide_raw<span class="op">,</span></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>net_generation_wide_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">2</span>]<span class="op">.</span><span class="at">path</span></span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>net_generation_wide_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">2</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>viewof generation_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Generation Metadata"</span><span class="op">,</span> net_generation_wide_metadata]<span class="op">,</span> </span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>              [<span class="st">"Generation"</span><span class="op">,</span> net_generation_wide]])<span class="op">,</span> </span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> net_generation_wide_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(generation_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="106" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 105;"><span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>net_generation_wide_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">2</span>]<span class="op">.</span><span class="at">description</span></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>net_generation_wide_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/generation/net_generation_wide.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>net_generation_wide <span class="op">=</span> <span class="fu">tidy</span>(net_generation_wide_raw<span class="op">,</span></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>net_generation_wide_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">2</span>]<span class="op">.</span><span class="at">path</span></span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>net_generation_wide_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">2</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span></span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>viewof generation_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Generation Metadata"</span><span class="op">,</span> net_generation_wide_metadata]<span class="op">,</span> </span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>              [<span class="st">"Generation"</span><span class="op">,</span> net_generation_wide]])<span class="op">,</span> </span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> net_generation_wide_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(generation_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -628,7 +628,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div><div class="column" style="width:80%;">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="102" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 101;"><span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(net_generation_wide_metadata<span class="op">,</span> <span class="st">'net_generation_wide_metadata.csv'</span><span class="op">,</span> <span class="vs">`Generation Metadata`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="119" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 118;"><span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(net_generation_wide_metadata<span class="op">,</span> <span class="st">'net_generation_wide_metadata.csv'</span><span class="op">,</span> <span class="vs">`Generation Metadata`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-1" data-nodetype="expression">
@@ -636,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="103" data-source-offset="-96"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 102;"><span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(net_generation_wide<span class="op">,</span> <span class="vs">`net_generation_wide.csv`</span><span class="op">,</span> <span class="vs">`Net Generation`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="120" data-source-offset="-96"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 119;"><span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(net_generation_wide<span class="op">,</span> <span class="vs">`net_generation_wide.csv`</span><span class="op">,</span> <span class="vs">`Net Generation`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-2" data-nodetype="expression">
@@ -653,20 +653,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="consumption-and-sales">Consumption and Sales</h3>
 <p><span><span id="ojs-element-id-4"></span></span></p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="126" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 125;"><span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a>consumption_wide_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">4</span>]<span class="op">.</span><span class="at">description</span></span>
-<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a>consumption_wide_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/consumption/consumption_wide.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
-<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a>consumption_wide <span class="op">=</span> <span class="fu">tidy</span>(consumption_wide_raw<span class="op">,</span></span>
-<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
-<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>consumption_wide_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">4</span>]<span class="op">.</span><span class="at">path</span></span>
-<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>consumption_wide_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">4</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span></span>
-<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a>viewof consumption_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Consumption Metadata"</span><span class="op">,</span> consumption_wide_metadata]<span class="op">,</span> </span>
-<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a>              [<span class="st">"Consumption"</span><span class="op">,</span> consumption_wide]])<span class="op">,</span> </span>
-<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> consumption_wide_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
-<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
-<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(consumption_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="143" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 142;"><span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a>consumption_wide_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">4</span>]<span class="op">.</span><span class="at">description</span></span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a>consumption_wide_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/consumption/consumption_wide.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a>consumption_wide <span class="op">=</span> <span class="fu">tidy</span>(consumption_wide_raw<span class="op">,</span></span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a>consumption_wide_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">4</span>]<span class="op">.</span><span class="at">path</span></span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a>consumption_wide_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">4</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span></span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a>viewof consumption_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Consumption Metadata"</span><span class="op">,</span> consumption_wide_metadata]<span class="op">,</span> </span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a>              [<span class="st">"Consumption"</span><span class="op">,</span> consumption_wide]])<span class="op">,</span> </span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> consumption_wide_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
+<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(consumption_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-6-1" data-nodetype="declaration">
@@ -727,7 +727,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div><div class="column" style="width:80%;">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="141" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 140;"><span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(consumption_wide_metadata<span class="op">,</span> <span class="st">'consumption_wide_metadata.csv'</span><span class="op">,</span> <span class="vs">`Consumption Metadata`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="158" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 157;"><span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(consumption_wide_metadata<span class="op">,</span> <span class="st">'consumption_wide_metadata.csv'</span><span class="op">,</span> <span class="vs">`Consumption Metadata`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-7-1" data-nodetype="expression">
@@ -735,7 +735,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="142" data-source-offset="-91"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 141;"><span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(consumption_wide<span class="op">,</span> <span class="vs">`consumption_wide.csv`</span><span class="op">,</span> <span class="vs">`Consumption`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="159" data-source-offset="-91"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 158;"><span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(consumption_wide<span class="op">,</span> <span class="vs">`consumption_wide.csv`</span><span class="op">,</span> <span class="vs">`Consumption`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-7-2" data-nodetype="expression">
@@ -752,22 +752,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="prices">Prices</h3>
 <p><span><span id="ojs-element-id-5"></span></span></p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="167" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 166;"><span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a>prices_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">6</span>]<span class="op">.</span><span class="at">description</span><span class="op">;</span></span>
-<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>prices_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/prices/prices.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
-<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a>prices <span class="op">=</span> <span class="fu">tidy</span>(prices_raw<span class="op">,</span></span>
-<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a>            <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
-<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>prices_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">6</span>]<span class="op">.</span><span class="at">path</span><span class="op">;</span></span>
-<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>prices_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">6</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span><span class="op">;</span></span>
-<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>viewof prices_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Prices Metadata"</span><span class="op">,</span> prices_metadata]<span class="op">,</span> </span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>              [<span class="st">"Prices"</span><span class="op">,</span> prices]])<span class="op">,</span> </span>
-<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> prices_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
-<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(prices_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="184" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 183;"><span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a>prices_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">6</span>]<span class="op">.</span><span class="at">description</span><span class="op">;</span></span>
+<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a>prices_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/prices/prices.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a>prices <span class="op">=</span> <span class="fu">tidy</span>(prices_raw<span class="op">,</span></span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>            <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
+<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>prices_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">6</span>]<span class="op">.</span><span class="at">path</span><span class="op">;</span></span>
+<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>prices_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">6</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span><span class="op">;</span></span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>viewof prices_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Prices Metadata"</span><span class="op">,</span> prices_metadata]<span class="op">,</span> </span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a>              [<span class="st">"Prices"</span><span class="op">,</span> prices]])<span class="op">,</span> </span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> prices_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(prices_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-8-1" data-nodetype="declaration">
@@ -828,7 +828,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div><div class="column" style="width:80%;">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb13" data-startfrom="180" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 179;"><span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(prices_metadata<span class="op">,</span> <span class="vs">`prices_metadata.csv`</span><span class="op">,</span> <span class="vs">`Metadata`</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb13" data-startfrom="197" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 196;"><span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(prices_metadata<span class="op">,</span> <span class="vs">`prices_metadata.csv`</span><span class="op">,</span> <span class="vs">`Metadata`</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-9-1" data-nodetype="expression">
@@ -836,7 +836,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb14" data-startfrom="181" data-source-offset="-60"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 180;"><span id="cb14-181"><a href="#cb14-181" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(prices<span class="op">,</span> <span class="vs">`prices.csv`</span><span class="op">,</span> <span class="vs">`Prices`</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb14" data-startfrom="198" data-source-offset="-60"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 197;"><span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(prices<span class="op">,</span> <span class="vs">`prices.csv`</span><span class="op">,</span> <span class="vs">`Prices`</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-9-2" data-nodetype="expression">
@@ -853,21 +853,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="population-weighted-average-prices">Population-Weighted Average Prices</h3>
 <p><span><span id="ojs-element-id-6"></span></span></p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb15" data-startfrom="205" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 204;"><span id="cb15-205"><a href="#cb15-205" aria-hidden="true" tabindex="-1"></a>weighted_prices_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">7</span>]<span class="op">.</span><span class="at">description</span><span class="op">;</span></span>
-<span id="cb15-206"><a href="#cb15-206" aria-hidden="true" tabindex="-1"></a>weighted_prices_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/prices/weighted_prices.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
-<span id="cb15-207"><a href="#cb15-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-208"><a href="#cb15-208" aria-hidden="true" tabindex="-1"></a>weighted_prices <span class="op">=</span> <span class="fu">tidy</span>(weighted_prices_raw<span class="op">,</span></span>
-<span id="cb15-209"><a href="#cb15-209" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
-<span id="cb15-210"><a href="#cb15-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-211"><a href="#cb15-211" aria-hidden="true" tabindex="-1"></a>weighted_prices_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">7</span>]<span class="op">.</span><span class="at">path</span><span class="op">;</span></span>
-<span id="cb15-212"><a href="#cb15-212" aria-hidden="true" tabindex="-1"></a>weighted_prices_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">7</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span><span class="op">;</span></span>
-<span id="cb15-213"><a href="#cb15-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-214"><a href="#cb15-214" aria-hidden="true" tabindex="-1"></a>viewof weighted_prices_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Weighted Prices Metadata"</span><span class="op">,</span> weighted_prices_metadata]<span class="op">,</span> </span>
-<span id="cb15-215"><a href="#cb15-215" aria-hidden="true" tabindex="-1"></a>              [<span class="st">"Weighted Prices"</span><span class="op">,</span> weighted_prices]])<span class="op">,</span> </span>
-<span id="cb15-216"><a href="#cb15-216" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> weighted_prices_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
-<span id="cb15-217"><a href="#cb15-217" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
-<span id="cb15-218"><a href="#cb15-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-219"><a href="#cb15-219" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(weighted_prices_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb15" data-startfrom="222" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 221;"><span id="cb15-222"><a href="#cb15-222" aria-hidden="true" tabindex="-1"></a>weighted_prices_description <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">7</span>]<span class="op">.</span><span class="at">description</span><span class="op">;</span></span>
+<span id="cb15-223"><a href="#cb15-223" aria-hidden="true" tabindex="-1"></a>weighted_prices_raw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/working/prices/weighted_prices.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
+<span id="cb15-224"><a href="#cb15-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-225"><a href="#cb15-225" aria-hidden="true" tabindex="-1"></a>weighted_prices <span class="op">=</span> <span class="fu">tidy</span>(weighted_prices_raw<span class="op">,</span></span>
+<span id="cb15-226"><a href="#cb15-226" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">filter</span>((d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">year</span> <span class="op">&lt;</span> <span class="dv">2020</span>))</span>
+<span id="cb15-227"><a href="#cb15-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-228"><a href="#cb15-228" aria-hidden="true" tabindex="-1"></a>weighted_prices_path <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">7</span>]<span class="op">.</span><span class="at">path</span><span class="op">;</span></span>
+<span id="cb15-229"><a href="#cb15-229" aria-hidden="true" tabindex="-1"></a>weighted_prices_metadata <span class="op">=</span> metadata<span class="op">.</span><span class="at">resources</span>[<span class="dv">7</span>]<span class="op">.</span><span class="at">schema</span><span class="op">.</span><span class="at">fields</span><span class="op">;</span></span>
+<span id="cb15-230"><a href="#cb15-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-231"><a href="#cb15-231" aria-hidden="true" tabindex="-1"></a>viewof weighted_prices_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">"Weighted Prices Metadata"</span><span class="op">,</span> weighted_prices_metadata]<span class="op">,</span> </span>
+<span id="cb15-232"><a href="#cb15-232" aria-hidden="true" tabindex="-1"></a>              [<span class="st">"Weighted Prices"</span><span class="op">,</span> weighted_prices]])<span class="op">,</span> </span>
+<span id="cb15-233"><a href="#cb15-233" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">value</span><span class="op">:</span> weighted_prices_metadata<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Preview:"</span>}</span>
+<span id="cb15-234"><a href="#cb15-234" aria-hidden="true" tabindex="-1"></a>              )<span class="op">;</span></span>
+<span id="cb15-235"><a href="#cb15-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-236"><a href="#cb15-236" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(weighted_prices_input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-10-1" data-nodetype="declaration">
@@ -928,7 +928,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div><div class="column" style="width:80%;">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb16" data-startfrom="215" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 214;"><span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(weighted_prices_metadata<span class="op">,</span> <span class="vs">`weighted_prices_metadata.csv`</span><span class="op">,</span> <span class="vs">`Metadata`</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb16" data-startfrom="232" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 231;"><span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(weighted_prices_metadata<span class="op">,</span> <span class="vs">`weighted_prices_metadata.csv`</span><span class="op">,</span> <span class="vs">`Metadata`</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-11-1" data-nodetype="expression">
@@ -936,7 +936,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb17" data-startfrom="216" data-source-offset="-78"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 215;"><span id="cb17-216"><a href="#cb17-216" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(weighted_prices<span class="op">,</span> <span class="vs">`weighted_prices.csv`</span><span class="op">,</span> <span class="vs">`Weighted Prices`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb17" data-startfrom="233" data-source-offset="-78"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 232;"><span id="cb17-233"><a href="#cb17-233" aria-hidden="true" tabindex="-1"></a><span class="fu">button</span>(weighted_prices<span class="op">,</span> <span class="vs">`weighted_prices.csv`</span><span class="op">,</span> <span class="vs">`Weighted Prices`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-11-2" data-nodetype="expression">
@@ -948,12 +948,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb18" data-startfrom="227" data-source-offset="-18"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 226;"><span id="cb18-227"><a href="#cb18-227" aria-hidden="true" tabindex="-1"></a>stdlib <span class="op">=</span> <span class="pp">require</span>(<span class="st">"@observablehq/stdlib"</span>)</span>
-<span id="cb18-228"><a href="#cb18-228" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@7"</span>)</span>
-<span id="cb18-229"><a href="#cb18-229" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {tidy<span class="op">,</span> groupBy<span class="op">,</span> rename<span class="op">,</span> summarize<span class="op">,</span> sum<span class="op">,</span> mutate<span class="op">,</span> select<span class="op">,</span> n<span class="op">,</span> nDistinct<span class="op">,</span> mean<span class="op">,</span> filter<span class="op">,</span> pivotWider<span class="op">,</span> pivotLonger<span class="op">,</span> leftJoin<span class="op">,</span> slice} <span class="im">from</span> <span class="st">"@pbeshai/tidyjs"</span></span>
-<span id="cb18-230"><a href="#cb18-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-231"><a href="#cb18-231" aria-hidden="true" tabindex="-1"></a><span class="co">// load metadata</span></span>
-<span id="cb18-232"><a href="#cb18-232" aria-hidden="true" tabindex="-1"></a>metadata <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/metadata.json"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb18" data-startfrom="244" data-source-offset="-18"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 243;"><span id="cb18-244"><a href="#cb18-244" aria-hidden="true" tabindex="-1"></a>stdlib <span class="op">=</span> <span class="pp">require</span>(<span class="st">"@observablehq/stdlib"</span>)</span>
+<span id="cb18-245"><a href="#cb18-245" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@7"</span>)</span>
+<span id="cb18-246"><a href="#cb18-246" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {tidy<span class="op">,</span> groupBy<span class="op">,</span> rename<span class="op">,</span> summarize<span class="op">,</span> sum<span class="op">,</span> mutate<span class="op">,</span> select<span class="op">,</span> n<span class="op">,</span> nDistinct<span class="op">,</span> mean<span class="op">,</span> filter<span class="op">,</span> pivotWider<span class="op">,</span> pivotLonger<span class="op">,</span> leftJoin<span class="op">,</span> slice} <span class="im">from</span> <span class="st">"@pbeshai/tidyjs"</span></span>
+<span id="cb18-247"><a href="#cb18-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-248"><a href="#cb18-248" aria-hidden="true" tabindex="-1"></a><span class="co">// load metadata</span></span>
+<span id="cb18-249"><a href="#cb18-249" aria-hidden="true" tabindex="-1"></a>metadata <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/metadata.json"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-12-1" data-nodetype="declaration">
@@ -984,18 +984,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb19" data-startfrom="246" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 245;"><span id="cb19-246"><a href="#cb19-246" aria-hidden="true" tabindex="-1"></a><span class="co">// download button function</span></span>
-<span id="cb19-247"><a href="#cb19-247" aria-hidden="true" tabindex="-1"></a>button <span class="op">=</span> (data<span class="op">,</span> filename <span class="op">=</span> <span class="st">'data.csv'</span><span class="op">,</span> displayname) <span class="kw">=&gt;</span> {</span>
-<span id="cb19-248"><a href="#cb19-248" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> downloadData <span class="op">=</span> <span class="kw">new</span> <span class="bu">Blob</span>([d3<span class="op">.</span><span class="fu">csvFormat</span>(data)]<span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">"text/csv"</span> })<span class="op">;</span></span>
-<span id="cb19-249"><a href="#cb19-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-250"><a href="#cb19-250" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> size <span class="op">=</span> (downloadData<span class="op">.</span><span class="at">size</span> <span class="op">/</span> <span class="dv">1024</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb19-251"><a href="#cb19-251" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> button <span class="op">=</span> DOM<span class="op">.</span><span class="fu">download</span>(</span>
-<span id="cb19-252"><a href="#cb19-252" aria-hidden="true" tabindex="-1"></a>    downloadData<span class="op">,</span></span>
-<span id="cb19-253"><a href="#cb19-253" aria-hidden="true" tabindex="-1"></a>    filename<span class="op">,</span></span>
-<span id="cb19-254"><a href="#cb19-254" aria-hidden="true" tabindex="-1"></a>    <span class="vs">`</span><span class="sc">${</span>displayname<span class="sc">}</span><span class="vs"> (</span><span class="sc">${</span>size<span class="sc">}</span><span class="vs"> KB)`</span></span>
-<span id="cb19-255"><a href="#cb19-255" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
-<span id="cb19-256"><a href="#cb19-256" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> button<span class="op">;</span></span>
-<span id="cb19-257"><a href="#cb19-257" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb19" data-startfrom="263" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 262;"><span id="cb19-263"><a href="#cb19-263" aria-hidden="true" tabindex="-1"></a><span class="co">// download button function</span></span>
+<span id="cb19-264"><a href="#cb19-264" aria-hidden="true" tabindex="-1"></a>button <span class="op">=</span> (data<span class="op">,</span> filename <span class="op">=</span> <span class="st">'data.csv'</span><span class="op">,</span> displayname) <span class="kw">=&gt;</span> {</span>
+<span id="cb19-265"><a href="#cb19-265" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> downloadData <span class="op">=</span> <span class="kw">new</span> <span class="bu">Blob</span>([d3<span class="op">.</span><span class="fu">csvFormat</span>(data)]<span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">"text/csv"</span> })<span class="op">;</span></span>
+<span id="cb19-266"><a href="#cb19-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-267"><a href="#cb19-267" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> size <span class="op">=</span> (downloadData<span class="op">.</span><span class="at">size</span> <span class="op">/</span> <span class="dv">1024</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb19-268"><a href="#cb19-268" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> button <span class="op">=</span> DOM<span class="op">.</span><span class="fu">download</span>(</span>
+<span id="cb19-269"><a href="#cb19-269" aria-hidden="true" tabindex="-1"></a>    downloadData<span class="op">,</span></span>
+<span id="cb19-270"><a href="#cb19-270" aria-hidden="true" tabindex="-1"></a>    filename<span class="op">,</span></span>
+<span id="cb19-271"><a href="#cb19-271" aria-hidden="true" tabindex="-1"></a>    <span class="vs">`</span><span class="sc">${</span>displayname<span class="sc">}</span><span class="vs"> (</span><span class="sc">${</span>size<span class="sc">}</span><span class="vs"> KB)`</span></span>
+<span id="cb19-272"><a href="#cb19-272" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb19-273"><a href="#cb19-273" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> button<span class="op">;</span></span>
+<span id="cb19-274"><a href="#cb19-274" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-13" data-nodetype="declaration">
 

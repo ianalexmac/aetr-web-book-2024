@@ -64,7 +64,7 @@ The Alaska Electrical Trends report has been produced by the Alaska Center for E
 * [Elizabeth (Liz) Dobbins](https://www.uaf.edu/acep/about/our-team/elizabeth-dobbins.php)`r if (knitr::is_html_output()) gen_fn(1, "fn1") else "^1^"`
   * Roles: software, project administration, resources, supervision, writing – review & editing
 
-* Neil McMahon`r if (knitr::is_html_output()) gen_fn(3, "fn3") else "^3^"`
+* [Neil McMahon](https://www.dowl.com)`r if (knitr::is_html_output()) gen_fn(3, "fn3") else "^3^"`
   * Roles: data curation, investigation, validation
 
 * [Sara Fisher-Goad](https://www.uaf.edu/research/contact-us/index.php)`r if (knitr::is_html_output()) gen_fn(2, "fn2") else "^2^"`
